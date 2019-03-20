@@ -16,7 +16,7 @@ function injectContents() {
         if ( i == 0 || !groups.includes(pageGroup) ) {
             const table = document.createElement('div');
             table.classList.add('table');
-            table.setAttribute('id', pageGroup);
+            table.setAttribute('id', 'group-' + pageGroup.replace(/\s+/g, '-').toLowerCase());
 
             const header = document.createElement('div');
             header.classList.add('table__row', 'table__header');
@@ -38,7 +38,7 @@ function injectContents() {
         value.innerText = pageNum;
         row.appendChild(value);
 
-        document.querySelector(`#${pageGroup}`).appendChild(row);
+        document.querySelector(`#group-${pageGroup.replace(/\s+/g, '-').toLowerCase()}`).appendChild(row);
 
         if ( !groups.includes(pageGroup) ) groups.push(pageGroup);
     });
